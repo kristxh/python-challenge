@@ -62,3 +62,19 @@ print(f"Total: ${net_prf_loss}")
 print(f"Average Change: ${average_change}")
 print(f"Greatest Increase in Profits: {greatest_increase_month} (${greatest_increase})")
 print(f"Greatest Decrease in Profits: {greatest_decrease_month} (${greatest_decrease})")
+
+# Output to file
+output_path = os.path.join("Output", "financial_analysis.csv")
+
+# Open the file using "write" mode and specify the variable
+with open(output_path, 'w', newline='') as csvfile:
+
+    # Initialize csv.writer
+    csvwriter = csv.writer(csvfile, delimiter=',')
+
+    # Write the Title and Totals
+    csvwriter.writerow(['Financial Analysis'])
+    csvwriter.writerow(['Total Months',total_months])
+    csvwriter.writerow(['Total Months',net_prf_loss])
+    csvwriter.writerow(['Greatest Increase in Profits',greatest_increase_month, greatest_increase])
+    csvwriter.writerow(['Greatest Decrease in Profits',greatest_decrease_month, greatest_decrease])
